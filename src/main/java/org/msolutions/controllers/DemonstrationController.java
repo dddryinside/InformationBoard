@@ -85,19 +85,23 @@ public class DemonstrationController {
 
         weatherTable.setVisible(false);
 
+        updateTime();
+
         showNextMedia();
     }
 
-    static class CheckTimeTask extends TimerTask {
+    class CheckTimeTask extends TimerTask {
         @Override
         public void run() {
             checkTime();
         }
     }
 
-    public static void checkTime() {
+    public void checkTime() {
         // Получаем текущее время
         LocalTime currentTime = LocalTime.now();
+
+        updateTime();
 
         // Проверяем, является ли время :00, :15, :30 или :45
         int minute = currentTime.getMinute();
@@ -155,24 +159,14 @@ public class DemonstrationController {
         if (currentIndex < content.size()) {
             File file = content.get(currentIndex);
             if (showCounter == 5) {
-                showCounter = -1;
+                showCounter = 0;
 
-                if (prevShowIndex == 1) {
-                    prevShowIndex = 0;
-                } else {
-                    prevShowIndex = 1;
-                }
-
-                if (showTime && prevShowIndex == 1) {
-                    System.out.println("Time next");
-                    showTime();
-                } else if (showWeather && prevShowIndex == 0) {
+                if (showWeather) {
                     System.out.println("Weather next");
                     showWeather();
                 } else {
                     showNextMedia();
                 }
-
             } else if (isImageFile(file)) {
                 System.out.println("Image next");
                 showImage(file);
@@ -200,12 +194,11 @@ public class DemonstrationController {
         Platform.runLater(() -> {
 
             imageView.setImage(new Image(file.toURI().toString()));
-
             imageView.setVisible(true);
 
             mediaView.setVisible(false);
-            timeLabel.setVisible(false);
             weatherTable.setVisible(false);
+            timeLabel.setVisible(showTime);
 
             imageView.fitHeightProperty().bind(mainPanel.heightProperty());
 
@@ -226,9 +219,9 @@ public class DemonstrationController {
             mediaView.setMediaPlayer(mediaPlayer);
 
             imageView.setVisible(false);
-            timeLabel.setVisible(false);
             weatherTable.setVisible(false);
             mediaView.setVisible(true);
+            timeLabel.setVisible(showTime);
 
             mediaView.fitHeightProperty().bind(mainPanel.heightProperty());
 
@@ -259,20 +252,12 @@ public class DemonstrationController {
         });
     }
 
-    private void showTime() {
+    private void updateTime() {
         Platform.runLater(() -> {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
             String currentTime = LocalTime.now().format(formatter);
             timeLabel.setText(currentTime);
-
-            timeLabel.setVisible(true);
-
-            imageView.setVisible(false);
-            mediaView.setVisible(false);
-            weatherTable.setVisible(false);
-
-            timeSleep();
         });
     }
 

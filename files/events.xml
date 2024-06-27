@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dates>
-  <date>
-    <id>26</id>
-    <name>тест</name>
-    <start>2024-06-27</start>
-    <end>2024-06-27</end>
-    <intervals>
-      <interval>
-        <startTime>11:45</startTime>
-        <endTime>12:00</endTime>
-      </interval>
-    </intervals>
-  </date>
+  
 </dates>

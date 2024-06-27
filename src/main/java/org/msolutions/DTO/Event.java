@@ -61,6 +61,13 @@ public class Event {
 
     @Override
     public String toString() {
-        return name + " (" + startDate + " - " + endDate + ")";
+        StringBuilder info = new StringBuilder();
+        info.append(name + " (" + startDate + " - " + endDate + ")");
+        if (timeIntervals.size() != 0) {
+            for (TimeInterval timeInterval : timeIntervals) {
+                info.append(", " + timeInterval.toString());
+            }
+        }
+        return String.valueOf(info);
     }
 }
