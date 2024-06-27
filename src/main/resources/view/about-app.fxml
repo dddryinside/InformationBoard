@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.msolutions.controllers.AboutAppController">
+
+    <MenuBar prefHeight="25.0" prefWidth="Infinity">
+        <menus>
+            <Menu text="Меню">
+                <items>
+                    <MenuItem text="Главная" onAction="#loadMainPage"/>
+                    <MenuItem text="Загрузить контент" onAction="#loadImportContentPage" />
+                    <MenuItem text="Создать событие" onAction="#loadAddEventPage" />
+                    <MenuItem text="Мои события" onAction="#loadDeleteEventsPage" />
+                    <MenuItem text="Настройки" onAction="#loadSettingsPage"/>
+                    <MenuItem text="Галерея" onAction="#loadGalleryPage"/>
+                </items>
+            </Menu>
+            <Menu text="Информация">
+                <items>
+                    <MenuItem text="О приложении" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <GridPane hgap="10" vgap="10">
+        <padding>
+            <Insets top="250.0" left="190"/>
+        </padding>
+
+        <Label text="Разработчик:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <Label text="Черников И.Г." GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+        <Label text="Дата компиляции:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <Label text="26.06.2024" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+        <Label text="Версия: " GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <Label text="1.1" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+    </GridPane>
+</VBox>

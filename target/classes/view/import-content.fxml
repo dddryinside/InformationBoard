@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.msolutions.controllers.ImportContentController">
+
+    <MenuBar prefHeight="25.0" prefWidth="Infinity">
+        <menus>
+            <Menu text="Меню">
+                <items>
+                    <MenuItem text="Главная" onAction="#loadMainPage"/>
+                    <MenuItem text="Загрузить контент" />
+                    <MenuItem text="Создать событие" onAction="#loadAddEventPage" />
+                    <MenuItem text="Мои события" onAction="#loadDeleteEventsPage" />
+                    <MenuItem text="Настройки" onAction="#loadSettingsPage"/>
+                    <MenuItem text="Галерея" onAction="#loadGalleryPage"/>
+                </items>
+            </Menu>
+            <Menu text="Информация">
+                <items>
+                    <MenuItem text="О приложении" onAction="#loadAboutAppPage"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <HBox alignment="BASELINE_LEFT">
+        <padding>
+            <Insets top="180.0" left="140"/>
+        </padding>
+
+        <VBox spacing="10">
+            <RadioButton fx:id="radioButton" text="Показывать по умолчанию (всегда)">
+                <toggleGroup>
+                    <ToggleGroup fx:id="group"/>
+                </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioButton2" text="Показывать во время события">
+                <toggleGroup>
+                    <fx:reference source="group"/>
+                </toggleGroup>
+            </RadioButton>
+        </VBox>
+    </HBox>
+
+    <HBox alignment="CENTER" spacing="20.0">
+        <ComboBox fx:id="eventsComboBox" prefWidth="150" prefHeight="30"/>
+        <Button fx:id="chooseEvent" text="ОК" onAction="#chooseEvent" prefWidth="150" prefHeight="30"/>
+    </HBox>
+
+    <GridPane alignment="CENTER" hgap="10" vgap="10" >
+        <columnConstraints>
+            <ColumnConstraints minWidth="80" maxWidth="80"/>
+            <ColumnConstraints minWidth="220" maxWidth="220"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+
+        <Label text="Показывать:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <Label fx:id="showSettings" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Контент:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <Label fx:id="contentName" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox alignment="CENTER" spacing="20.0">
+        <Button text="Выбрать контент" onAction="#importContent" prefWidth="150" prefHeight="40"/>
+        <Button text="Сохранить" onAction="#saveContent" prefWidth="150" prefHeight="40"/>
+    </HBox>
+</VBox>

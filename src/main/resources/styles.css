@@ -1,0 +1,16 @@
+.default-button {
+    -fx-pref-width: 220px;
+    -fx-pref-height: 40px;
+}
+
+.weather-text {
+    -fx-font-size: 120px;
+    -fx-text-fill: white;
+}
+
+.image-view {
+    -fx-fit-width: Infinity;
+    -fx-fit-height: Infinity;
+    -fx-preserve-ratio: true;
+    -fx-center-image: true;
+}

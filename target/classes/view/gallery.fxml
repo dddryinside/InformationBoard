@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.msolutions.controllers.GalleryController"
+      stylesheets="@/styles.css">
+
+    <MenuBar prefHeight="25.0" prefWidth="Infinity">
+        <menus>
+            <Menu text="Меню">
+                <items>
+                    <MenuItem text="Главная" onAction="#loadMainPage"/>
+                    <MenuItem text="Загрузить контент" onAction="#loadImportContentPage"/>
+                    <MenuItem text="Создать событие" onAction="#loadAddEventPage"/>
+                    <MenuItem text="Мои события" onAction="#loadDeleteEventsPage"/>
+                    <MenuItem text="Настройки" onAction="#loadSettingsPage"/>
+                    <MenuItem text="Галерея"/>
+                </items>
+            </Menu>
+            <Menu text="Информация">
+                <items>
+                    <MenuItem text="О приложении" onAction="#loadAboutAppPage"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <ScrollPane fx:id="scrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox fx:id="fileContainer" spacing="30" style="-fx-padding: 100 0 0 0;" alignment="CENTER">
+        </VBox>
+
+        <padding>
+            <Insets bottom="40.0"/>
+        </padding>
+    </ScrollPane>
+</VBox>

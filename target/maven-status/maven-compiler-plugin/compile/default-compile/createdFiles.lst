@@ -1,0 +1,4 @@
+module-info.class
+org\msolutions\InformationBoard.class
+org\msolutions\controllers\MainController.class
+org\msolutions\Main.class

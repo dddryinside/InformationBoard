@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.msolutions.controllers.MainController"
+      stylesheets="@/styles.css">
+
+    <MenuBar prefHeight="25.0" prefWidth="Infinity">
+        <menus>
+            <Menu text="Меню">
+                <items>
+                    <MenuItem text="Главная"/>
+                    <MenuItem text="Загрузить контент" onAction="#loadImportContentPage" />
+                    <MenuItem text="Создать событие" onAction="#loadAddEventPage" />
+                    <MenuItem text="Мои события" onAction="#loadDeleteEventsPage" />
+                    <MenuItem text="Настройки" onAction="#loadSettingsPage"/>
+                    <MenuItem text="Галерея" onAction="#loadGalleryPage"/>
+                </items>
+            </Menu>
+            <Menu text="Информация">
+                <items>
+                    <MenuItem text="О приложении" onAction="#loadAboutAppPage"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <VBox alignment="CENTER">
+        <padding>
+            <Insets top="250.0"/>
+        </padding>
+        <Button text="Запустить демонстрацию" onAction="#startDemonstration" prefWidth="350" prefHeight="80"/>
+    </VBox>
+</VBox>
