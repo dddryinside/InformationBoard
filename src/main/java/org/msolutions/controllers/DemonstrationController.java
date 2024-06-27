@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.msolutions.DTO.Event;
 import org.msolutions.service.AppSettingsManager;
@@ -26,6 +27,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class DemonstrationController {
+    public Stage demonstrationStage;
+
     @FXML private ImageView imageView;
     @FXML private MediaView mediaView;
     @FXML private StackPane mainPanel;
@@ -130,6 +133,12 @@ public class DemonstrationController {
         }
 
         freshContent = true;
+
+        if (content.size() == 0) {
+            stopPlayback();
+            demonstrationStage.close();
+            demonstrationStage = null;
+        }
     }
 
     private void showNextMedia() {

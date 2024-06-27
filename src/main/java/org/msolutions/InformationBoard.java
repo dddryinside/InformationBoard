@@ -66,6 +66,7 @@ public class InformationBoard extends Application {
 
             // Получаем контроллер для доступа к методу stopPlayback
             DemonstrationController controller = loader.getController();
+            controller.demonstrationStage = demonstrationStage;
 
             demonstrationStage.setOnCloseRequest(event -> {
                 controller.stopPlayback();
